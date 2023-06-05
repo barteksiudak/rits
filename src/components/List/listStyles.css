@@ -1,0 +1,10 @@
+.list {
+  display: flex;
+  flex-direction: column;
+}
+
+.list-item {
+  flex: 1;
+  min-height: 50px;
+  border-bottom: 1px solid #333;
+}
