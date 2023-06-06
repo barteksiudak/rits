@@ -17,7 +17,8 @@ describe('useFetch', () => {
 
   // todo - sometimes waitFor doesn't wait for the result. To be fixed later
   it.skip('should remove spinner after call', async () => {
-    await render(<AppStateProvider><UseFetchContainer /></AppStateProvider>);
-    const isLoadingElement = await waitFor(() => expect(screen.getByText('isLoading: no')).toBeInTheDocument());
+    render(<AppStateProvider><UseFetchContainer /></AppStateProvider>);
+    // eslint-disable-next-line testing-library/prefer-find-by
+    await waitFor(() => expect(screen.getByText('isLoading: no')).toBeInTheDocument());
   });
 });
