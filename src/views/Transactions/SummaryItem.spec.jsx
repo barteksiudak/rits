@@ -20,7 +20,7 @@ describe('SummaryItem', () => {
   });
   it('displays total', () => {
     render(<SummaryItem summary={{ userName: 'Test', points: pointsMock }} />);
-    const poinstItemElement = screen.getByText('Total: 12');
+    const poinstItemElement = screen.getByText('12');
     expect(poinstItemElement).toBeInTheDocument();
   });
 });

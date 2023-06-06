@@ -6,9 +6,5 @@ import { AppStateContext } from '../../store/appStore';
 export default function Container({ dataTestid, children }) {
   const [{ isLoading }] = useContext(AppStateContext);
 
-  if (isLoading) {
-    return <Spinner />
-  }
-
-  return <div data-testid={dataTestid} className="container">{children}</div>;
+  return <div data-testid={dataTestid} className="container">{isLoading ? <Spinner /> : children}</div>;
 }
