@@ -1,9 +1,16 @@
 import './App.css';
-import { Container } from './components';
+import { AppStateProvider, TransactionsProvider } from './store';
+import { Transactions } from './views';
+import { Error } from './components';
 
 function App() {
   return (
-    <Container dataTestid="app-container">Test</Container>
+    <AppStateProvider>
+      <Error />
+      <TransactionsProvider>
+        <Transactions />
+      </TransactionsProvider>
+    </AppStateProvider>
   );
 }
 

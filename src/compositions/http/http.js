@@ -1,3 +1,5 @@
+import fetchMock from './fetchMock';
+
 export const getResponseJson = (response) => {
   const { status, ok } = response;
   if (response.headers.get('Content-Length') === '0') {
@@ -9,7 +11,7 @@ export const getResponseJson = (response) => {
   }
 
   const responseData = response.json();
-  return responseData.then((data) => ({
+  return responseData.then(({ data }) => ({
     data,
     status,
     ok,
@@ -31,7 +33,7 @@ export default function http({
     return Promise.reject(e);
   }
 
-  const request = fetch(url, {
+  const request = fetchMock(url, {
     method,
     headers: { 'Content-Type': 'application/json' },
     body,

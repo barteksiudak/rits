@@ -3,6 +3,6 @@ import App from './App';
 
 test('renders app', () => {
   render(<App />);
-  const linkElement = screen.getByTestId("app-container");
-  expect(linkElement).toBeInTheDocument();
+  const spinnerElement = screen.getByTestId('spinner');
+  expect(spinnerElement).toBeInTheDocument();
 });

@@ -1,0 +1,15 @@
+.summary-container {
+  padding: 15px;
+}
+
+.summary-container, .summary-points {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.summary-total {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid white;
+}

@@ -6,11 +6,11 @@ const mock = {
 
 const responseMock = {
   ok: true,
-  status: 'ok',
+  status: 200,
   headers: {
     get: jest.fn(),
   },
-  json: () => Promise.resolve(mock),
+  json: () => Promise.resolve({ data: mock }),
 }
 
 describe('http', () => {
@@ -22,11 +22,21 @@ describe('http', () => {
       res = e;
     }
 
-    expect(String(res)).toMatch(/syntaxerror/i);
+    expect(res.status).toBe(200);
+    expect(res.data.length).toBeGreaterThan(1);
   });
 
-  it('is getResponseJson', async () => {
-    const res = await getResponseJson(responseMock);
-    expect(res).toEqual({ ok: true, status: 'ok', data: mock });
+  describe('getResponseJson', () => {
+    it('is getResponseJson', async () => {
+      const res = await getResponseJson(responseMock);
+      expect(res).toEqual({ ok: true, status: 200, data: mock });
+    });
+
+    it('has no content length', async () => {
+      const res = await getResponseJson({ ...responseMock, headers: {  get: () => '0'} });
+
+      expect(res).toEqual({ ok: true, status: 200, data: {} });
+    })
   });
+
 });

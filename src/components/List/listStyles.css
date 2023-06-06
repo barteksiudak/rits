@@ -1,10 +1,13 @@
 .list {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 30px;
 }
 
 .list-item {
-  flex: 1;
+  background-color: lightgreen;
   min-height: 50px;
-  border-bottom: 1px solid #333;
+  border: 1px solid #333;
+  border-radius: 15px;
+  min-width: 200px;
 }

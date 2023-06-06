@@ -1,0 +1,18 @@
+.error {
+  position: absolute;
+  top: 30px;
+  left: calc(50% - 150px);
+  width: 300px;
+  height: 100px;
+  padding: 25px;
+  background-color: lightcoral;
+  z-index: 100;
+}
+
+.error-close, .error-close:hover, .error-close:visited {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  color: #333;
+  text-decoration: none;
+}

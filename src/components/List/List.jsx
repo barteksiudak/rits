@@ -6,7 +6,6 @@ export default function List({ children }) {
       <div className="list">
         {children}
       </div>
-      {/* {!items.length && <div className="list-empty">There is nothing to show</div>} */}
     </>
   );
 }
